@@ -1,0 +1,22 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Release.Name }}
+  annotations:
+    hive.openshift.io/try-install-once: "true"
+spec:
+  baseDomain: eaasdemo.com
+  clusterName: {{ .Release.Namespace }}-{{ .Release.Name }}
+  platform:
+    aws:
+      credentialsSecretRef:
+        name: appstudio-demo-aws-creds
+      region: us-east-1
+  provisioning:
+    releaseImage: {{ .Values.ReleaseImage }}
+    installConfigSecretRef:
+      name: default-install-config
+    sshPrivateKeySecretRef:
+      name: sshkey-cluster
+  pullSecretRef:
+    name: pullsecret-cluster
