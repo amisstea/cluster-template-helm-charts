@@ -1,0 +1,72 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-cluster-{{ .Release.Name }}
+  namespace: clusters
+spec:
+  template:
+    metadata:
+      name: create-cluster-{{ .Release.Name }}
+    spec:
+      serviceAccountName: cluster-creator-sa
+      restartPolicy: Never
+      backoffLimit: 0
+      containers:
+        - name: hypershift
+          image: quay.io/hypershift/hypershift-operator:4.15
+          args:
+            - create
+            - cluster
+            - aws
+            - --name
+            - cluster-{{ .Release.Name }}
+            - --infra-id
+            - infra-{{ .Release.Name }}
+            - --secret-creds
+            - hypershift-creds
+            - --region
+            - us-east-2
+            - --control-plane-availability-policy
+            - SingleReplica
+            - --infra-availability-policy
+            - SingleReplica
+            - --arch
+            - "{{ .Values.ocpArch }}"
+            - --release-image
+            - quay.io/openshift-release-dev/ocp-release:{{ .Values.ocpVersion }}-multi
+            - --node-pool-replicas
+            - "2"
+            - --wait
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: destroy-cluster-{{ .Release.Name }}
+  namespace: clusters
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: destroy-cluster-{{ .Release.Name }}
+    spec:
+      serviceAccountName: cluster-creator-sa
+      restartPolicy: Never
+      containers:
+        - name: hypershift
+          image: quay.io/hypershift/hypershift-operator:4.15
+          args:
+            - destroy
+            - cluster
+            - aws
+            - --name
+            - cluster-{{ .Release.Name }}
+            - --infra-id
+            - infra-{{ .Release.Name }}
+            - --secret-creds
+            - hypershift-creds
+            - --region
+            - us-east-2

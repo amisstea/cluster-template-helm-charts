@@ -3,7 +3,7 @@ entries:
   hive-template:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-02-29T13:12:05.388611742-05:00"
+    created: "2024-04-10T16:06:27.62229728-04:00"
     description: Hive cluster template
     digest: b305d06c2c541d3f59cd00a79b538052b85e042460f577fc0ed79ec51fbba0e5
     name: hive-template
@@ -13,7 +13,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-02-29T13:12:05.388452056-05:00"
+    created: "2024-04-10T16:06:27.622099705-04:00"
     description: Hive cluster template
     digest: 412a5e7d06076dc666125a50f8a5ba86470e05e0cd9f7baf0d7d8f5bfdb94366
     name: hive-template
@@ -24,7 +24,7 @@ entries:
   hypershift-agent-template:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-02-29T13:12:05.388797925-05:00"
+    created: "2024-04-10T16:06:27.622584532-04:00"
     description: Hypershift cluster template with agent workers
     digest: 6c102d58ca9a76c17681eb260e71be3e699801f292501d225261356cb3d6f8de
     name: hypershift-agent-template
@@ -32,11 +32,23 @@ entries:
     urls:
     - https://amisstea.github.io/cluster-templates-manifests/hypershift-agent-template-0.0.1.tgz
     version: 0.0.1
+  hypershift-aws-template:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-04-10T16:06:27.622792893-04:00"
+    description: A Helm chart for creating hosted control plane clusters with NodePools
+      in AWS
+    digest: ee46c4d0ea32f62bd4037c0b1affb42ebeab16902c4096eea44edd9835514375
+    name: hypershift-aws-template
+    type: application
+    urls:
+    - https://amisstea.github.io/cluster-templates-manifests/hypershift-aws-template-0.0.1.tgz
+    version: 0.0.1
   hypershift-kubevirt-template:
   - annotations:
       cluster-template: "true"
     apiVersion: v2
-    created: "2024-02-29T13:12:05.389148122-05:00"
+    created: "2024-04-10T16:06:27.623734955-04:00"
     description: A Helm chart which installs Hypershift cluster using KubeVirt platform
     digest: 2b5d44df585930cc6b4c4129937b0434e8ebc957d08f6d084ae8d501f1dcabcb
     name: hypershift-kubevirt-template
@@ -47,7 +59,7 @@ entries:
   - annotations:
       cluster-template: "true"
     apiVersion: v2
-    created: "2024-02-29T13:12:05.388975454-05:00"
+    created: "2024-04-10T16:06:27.623066612-04:00"
     description: A Helm chart which installs Hypershift cluster using KubeVirt platform
     digest: f9dba9ee49c541c0610561b53dedb4330eec2b9f1f8b286df61fd1d004725321
     name: hypershift-kubevirt-template
@@ -60,7 +72,7 @@ entries:
       cluster-template: "true"
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-29T13:12:05.38950231-05:00"
+    created: "2024-04-10T16:06:27.625323716-04:00"
     description: A Helm chart for Kubernetes
     digest: 0ed6be0fd8c1586060aa2bee1d7c6381f155f014bfced1d4599d1de08081d592
     name: hypershift-template
@@ -72,7 +84,7 @@ entries:
       cluster-template: "true"
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-29T13:12:05.389329766-05:00"
+    created: "2024-04-10T16:06:27.625077597-04:00"
     description: A Helm chart for Kubernetes
     digest: 5ec6d9847042c66663daad6e2f26d8abcf4d81e44260caf48571d1608c50b193
     name: hypershift-template
@@ -85,7 +97,7 @@ entries:
       cluster-template: "true"
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-02-29T13:12:05.389666028-05:00"
+    created: "2024-04-10T16:06:27.62554472-04:00"
     description: A Helm chart for Kubernetes
     digest: 4fe15db4b847ef3d10dd32400c407c76d45e5f6c1122e583682ee5c6973489e6
     name: my-hypershift-template
@@ -93,4 +105,4 @@ entries:
     urls:
     - https://amisstea.github.io/cluster-templates-manifests/my-hypershift-template-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-29T13:12:05.388175439-05:00"
+generated: "2024-04-10T16:06:27.621727111-04:00"
