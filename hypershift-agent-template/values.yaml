@@ -1,5 +1,0 @@
-#OCP version to deploy
-ocpVersion: 4.12.21
-agentNamespace: agent-infra
-baseDnsDomain: sampletemplateinstance.com
-APIPublishingStrategy: LoadBalancer
