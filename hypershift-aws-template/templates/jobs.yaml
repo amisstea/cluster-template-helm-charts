@@ -1,4 +1,12 @@
 ---
+# Something that isn't a hook (experimenting)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dummy
+data: {}
+
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -8,6 +16,9 @@ spec:
   template:
     metadata:
       name: create-cluster-{{ .Release.Name }}
+      annotations:
+        argocd.argoproj.io/hook: Sync
+        argocd.argoproj.io/hook-delete-policy: HookSucceeded
     spec:
       serviceAccountName: cluster-creator-sa
       restartPolicy: Never
@@ -20,9 +31,9 @@ spec:
             - cluster
             - aws
             - --name
-            - cluster-{{ .Release.Name }}
+            - {{ .Release.Name }}
             - --infra-id
-            - infra-{{ .Release.Name }}
+            - {{ .Release.Name | trunc -12 }}
             - --secret-creds
             - hypershift-creds
             - --region
@@ -46,8 +57,10 @@ metadata:
   name: destroy-cluster-{{ .Release.Name }}
   namespace: clusters
   annotations:
-    "helm.sh/hook": post-delete
-    "helm.sh/hook-delete-policy": hook-succeeded
+    helm.sh/hook: post-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+    argocd.argoproj.io/hook: PostDelete
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     metadata:
@@ -63,9 +76,9 @@ spec:
             - cluster
             - aws
             - --name
-            - cluster-{{ .Release.Name }}
+            - {{ .Release.Name }}
             - --infra-id
-            - infra-{{ .Release.Name }}
+            - {{ .Release.Name | trunc -12 }}
             - --secret-creds
             - hypershift-creds
             - --region
