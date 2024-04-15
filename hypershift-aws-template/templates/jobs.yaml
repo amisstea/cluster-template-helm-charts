@@ -22,7 +22,6 @@ spec:
     spec:
       serviceAccountName: cluster-creator-sa
       restartPolicy: Never
-      backoffLimit: 0
       containers:
         - name: hypershift
           image: quay.io/hypershift/hypershift-operator:4.15
@@ -49,7 +48,11 @@ spec:
             - --node-pool-replicas
             - "2"
             - --annotations
-            - argocd.argoproj.io/tracking-id={{ .Release.Name }}
+            - argocd.argoproj.io/tracking-id={{ .Release.Name }}:hypershift.openshift.io/HostedCluster:clusters/{{ .Release.Name }}
+            - --annotations
+            - argocd.argoproj.io/compare-options=IgnoreExtraneous
+            - --annotations
+            - argocd.argoproj.io/sync-options=Prune=false,Delete=false
             - --wait
 
 ---
