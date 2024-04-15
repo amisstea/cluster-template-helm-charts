@@ -3,7 +3,7 @@ entries:
   hive-template:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-04-12T18:45:22.417816105-04:00"
+    created: "2024-04-14T23:08:41.778790642-04:00"
     description: Hive cluster template
     digest: 720dcab942c10f5eb6251f8f7d8aa4d098ed9a7f1d93e75ab0dda66abe013f4a
     name: hive-template
@@ -14,13 +14,13 @@ entries:
   hypershift-aws-template:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-04-12T18:45:22.418173463-04:00"
+    created: "2024-04-14T23:08:41.779002014-04:00"
     description: A Helm chart for creating hosted control plane clusters with NodePools
       in AWS
-    digest: 2778ac0e31fb33b2e3fdd88dd873cb3195737a74ec46e59290fbe7100f60c6fd
+    digest: fc0fa370ec212f982c4a085c2e78ff9daea6a948a1222539101cb929a454b045
     name: hypershift-aws-template
     type: application
     urls:
     - https://amisstea.github.io/cluster-template-helm-charts/hypershift-aws-template-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-12T18:45:22.417280354-04:00"
+generated: "2024-04-14T23:08:41.778443613-04:00"

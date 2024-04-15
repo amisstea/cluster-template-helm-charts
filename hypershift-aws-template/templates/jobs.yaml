@@ -48,6 +48,8 @@ spec:
             - quay.io/openshift-release-dev/ocp-release:{{ .Values.ocpVersion }}-multi
             - --node-pool-replicas
             - "2"
+            - --annotations
+            - argocd.argoproj.io/tracking-id={{ .Release.Name }}
             - --wait
 
 ---
