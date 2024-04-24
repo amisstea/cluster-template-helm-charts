@@ -37,8 +37,10 @@ spec:
             - "{{ .Values.ocpArch }}"
             - --release-image
             - quay.io/openshift-release-dev/ocp-release:{{ .Values.ocpVersion }}-multi
+            - --instance-type
+            - m5.large
             - --node-pool-replicas
-            - "2"
+            - {{ .Values.nodePoolReplicas | toString }}
             - --annotations
             - argocd.argoproj.io/tracking-id={{ .Release.Name }}:hypershift.openshift.io/HostedCluster:clusters/{{ .Release.Name }}
             - --annotations

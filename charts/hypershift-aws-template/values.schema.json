@@ -2,10 +2,16 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "required": [
-    "ocpVersion",
-    "ocpArch"
+    "nodePoolReplicas",
+    "ocpArch",
+    "ocpVersion"
   ],
   "properties": {
+    "nodePoolReplicas": {
+      "type": "integer",
+      "maximum": 4,
+      "minimum": 2
+    },
     "ocpArch": {
       "type": "string",
       "enum": ["amd64", "arm64"]

@@ -2,8 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-#An OCP version to deploy
+# Size of the worker node pool
+nodePoolSize: 2
+
+# An OCP version to deploy
 ocpVersion: "4.15.5"
 
-#An OCP arch to deploy
-ocpArch: arm64
+# An OCP arch to deploy
+ocpArch: amd64
