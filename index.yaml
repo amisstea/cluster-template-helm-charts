@@ -3,6 +3,17 @@ entries:
   hypershift-aws-template:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-04-24T20:55:18.434304301Z"
+    description: A Helm chart for creating hosted control plane clusters with NodePools
+      in AWS
+    digest: 79974503b35bebdb422308e2862401dd94cfda28e1978141709b9696bddd3c7e
+    name: hypershift-aws-template
+    type: application
+    urls:
+    - https://github.com/amisstea/cluster-template-helm-charts/releases/download/hypershift-aws-template-0.0.2/hypershift-aws-template-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-04-24T19:27:14.972417795Z"
     description: A Helm chart for creating hosted control plane clusters with NodePools
       in AWS
@@ -12,4 +23,4 @@ entries:
     urls:
     - https://github.com/amisstea/cluster-template-helm-charts/releases/download/hypershift-aws-template-0.0.1/hypershift-aws-template-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-24T19:27:14.972424317Z"
+generated: "2024-04-24T20:55:18.434323898Z"
