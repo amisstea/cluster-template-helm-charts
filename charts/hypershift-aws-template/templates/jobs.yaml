@@ -3,7 +3,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: create-cluster-{{ .Release.Name }}
-  namespace: clusters
+  namespace: {{ .Release.Namespace }}
 spec:
   template:
     metadata:
@@ -34,7 +34,7 @@ spec:
             - --infra-availability-policy
             - SingleReplica
             - --arch
-            - "{{ .Values.ocpArch }}"
+            - {{ .Values.ocpArch }}
             - --release-image
             - quay.io/openshift-release-dev/ocp-release:{{ .Values.ocpVersion }}-multi
             - --instance-type
@@ -42,7 +42,7 @@ spec:
             - --node-pool-replicas
             - {{ .Values.nodePoolReplicas | toString }}
             - --annotations
-            - argocd.argoproj.io/tracking-id={{ .Release.Name }}:hypershift.openshift.io/HostedCluster:clusters/{{ .Release.Name }}
+            - argocd.argoproj.io/tracking-id={{ .Release.Name }}:hypershift.openshift.io/HostedCluster:{{ .Release.Namespace }}/{{ .Release.Name }}
             - --annotations
             - argocd.argoproj.io/compare-options=IgnoreExtraneous
             - --annotations
@@ -54,7 +54,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: destroy-cluster-{{ .Release.Name }}
-  namespace: clusters
+  namespace: {{ .Release.Namespace }}
   annotations:
     helm.sh/hook: post-delete
     helm.sh/hook-delete-policy: hook-succeeded
