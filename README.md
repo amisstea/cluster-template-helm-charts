@@ -1,5 +1,5 @@
 # cluster-template-helm-charts
-Contains demo Helm Charts for use with the
+Helm Charts for use with the
 [cluster-templates-operator](https://github.com/stolostron/cluster-templates-operator/).
 Refer to the Operator's documentation for more information.
 
@@ -15,9 +15,9 @@ To uninstall a chart/destroy a cluster (and infra/iam):
 helm uninstall --timeout 20m my-cluster
 ```
 
-To package a new chart run the following commands:
+## Releases
 
-```shell
-helm package <chart-dir>
-helm repo index . --url https://amisstea.github.io/cluster-template-helm-charts
-```
+A GitHub Actions [workflow](.github/workflows/release.yaml) is used to automatically release new charts upon merge to the `main`
+branch.
+
+The chart repository is hosted with GitHub Pages and located at https://amisstea.github.io/cluster-template-helm-charts.
