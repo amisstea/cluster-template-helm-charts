@@ -40,7 +40,7 @@ spec:
             - --instance-type
             - m5.large
             - --node-pool-replicas
-            - {{ .Values.nodePoolReplicas | toString }}
+            - "{{ .Values.nodePoolReplicas | toString }}"
             - --annotations
             - argocd.argoproj.io/tracking-id={{ .Release.Name }}:hypershift.openshift.io/HostedCluster:{{ .Release.Namespace }}/{{ .Release.Name }}
             - --annotations
