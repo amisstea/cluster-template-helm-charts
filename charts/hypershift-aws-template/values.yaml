@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # Size of the worker node pool
-nodePoolSize: 2
+nodePoolReplicas: 2
 
 # An OCP version to deploy
 ocpVersion: "4.15.5"
