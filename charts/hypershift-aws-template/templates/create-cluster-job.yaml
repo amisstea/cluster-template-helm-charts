@@ -33,7 +33,7 @@ spec:
             - --node-pool-replicas
             - "{{ .Values.nodePoolReplicas }}"
             - --release-image
-            - quay.io/openshift-release-dev/ocp-release:{{ .Values.ocpVersion }}-multi
+            - quay.io/openshift-release-dev/ocp-release:{{ .Values.version }}-multi
             - --control-plane-availability-policy
             - SingleReplica
             - --infra-availability-policy
