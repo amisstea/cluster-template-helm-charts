@@ -1,7 +1,5 @@
 # Default values for hypershift-aws-template.
 
-arch: amd64
-
 hypershiftImageTag: latest
 
 instanceType: m5.large

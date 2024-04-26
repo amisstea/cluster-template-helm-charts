@@ -2,7 +2,6 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "required": [
-    "arch",
     "baseDomain",
     "hypershiftImageTag",
     "instanceType",
@@ -13,11 +12,6 @@
     "version"
   ],
   "properties": {
-    "arch": {
-      "type": "string",
-      "description": "Architecture of the worker nodes",
-      "enum": ["amd64", "arm64"]
-    },
     "baseDomain": {
       "description": "Base domain already configured in AWS Route53",
       "type": "string"
@@ -28,13 +22,16 @@
     },
     "instanceType": {
       "type": "string",
-      "description": "AWS EC2 instance type for worker nodes",
-      "enum": ["m5.large", "m5.xlarge", "m5.2xlarge"]
+      "description": "AWS EC2 instance type for worker nodes. Use m5.* for amd64 and m6g.* for arm64.",
+      "enum": [
+        "m5.large", "m5.xlarge", "m5.2xlarge",
+        "m6g.large", "m6g.xlarge", "m6g.2xlarge"
+      ]
     },
     "nodePoolReplicas": {
       "type": "integer",
       "description": "Size of the worker node pool",
-      "maximum": 4,
+      "maximum": 3,
       "minimum": 2
     },
     "region": {

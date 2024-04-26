@@ -27,7 +27,11 @@ spec:
             - --region
             - {{ .Values.region }}
             - --arch
-            - {{ .Values.arch }}
+            {{- if hasPrefix "m6g." .Values.instanceType }}
+            - arm64
+            {{- else }}
+            - amd64
+            {{- end }}
             - --instance-type
             - {{ .Values.instanceType }}
             - --node-pool-replicas
