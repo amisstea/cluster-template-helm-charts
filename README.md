@@ -17,7 +17,8 @@ helm uninstall --timeout 20m my-cluster
 
 ## Releases
 
-A GitHub Actions [workflow](.github/workflows/release.yaml) is used to automatically release new charts upon merge to the `main`
-branch.
+A GitHub Actions [workflow](.github/workflows/release.yaml) is used to automatically release new
+charts upon merge to the `main` branch.
 
-The chart repository is hosted with GitHub Pages and located at https://amisstea.github.io/cluster-template-helm-charts.
+The chart repository is hosted with GitHub Pages and located at
+https://amisstea.github.io/cluster-template-charts.
