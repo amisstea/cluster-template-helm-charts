@@ -4,9 +4,9 @@ kind: Job
 metadata:
   name: create-cluster-{{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
-  annotations:
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  # annotations:
+  #   argocd.argoproj.io/hook: Sync
+  #   argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     metadata:
